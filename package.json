@@ -1,0 +1,27 @@
+{
+  "name": "nodechat",
+  "version": "1.0.0",
+  "description": "Char server in Node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://mihaelamj@github.com/mihaelamj/nodechat.git"
+  },
+  "keywords": [
+    "node",
+    "chat"
+  ],
+  "author": "Mihaela Mihaljevic Jakic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mihaelamj/nodechat/issues"
+  },
+  "homepage": "https://github.com/mihaelamj/nodechat#readme",
+  "dependencies": {
+    "ejs": "^2.4.1",
+    "express": "^4.13.4"
+  }
+}
