@@ -1,5 +1,6 @@
 var Page = require('./entities/page');
 var Room = require('./entities/room');
+//TODO: add DB from (future) config
 
 var RoomsDataSource = {
     //private properties
@@ -28,6 +29,8 @@ var RoomsDataSource = {
     
     fecthAllRooms : function() {
         return this._rooms.slice(0);
+        //init 1st page
+        this.page.firstPage(this._rooms.length, this._itemsPerPage);
     },
     
     describeRooms : function(rooms) {

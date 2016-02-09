@@ -1,6 +1,7 @@
 var Page = require('./entities/page');
 var User = require('./entities/user');
 var uuid = require('node-uuid');
+//TODO: add DB from (future) config
 
 var UsersDataSource = {
     //private properties

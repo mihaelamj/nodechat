@@ -1,3 +1,4 @@
+
 var uuid = require('node-uuid');
 
 //Room class
@@ -5,9 +6,9 @@ function Room(name) {
   this.name = name;
   this.id = uuid.v1();
   this.index = 0;
-  this.users = new Array();
-  this.messages = new Array();
   this.dateCreated = new Date();
+  this.users = new Array();
+  this.messages = new Array()
 };
 
 Room.prototype.describe = function() {
