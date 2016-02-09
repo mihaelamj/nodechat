@@ -6,16 +6,58 @@
 //6. mkdir controllers -> and make html and api controllers
 //7. require and use controllers
 //8. mkdir public
+//9. mkdir data for data sources
+//10. npm install node-uuid --save
+//11. npm install mongoose --save
+//12. npm install body-parser --save
 
 //init app and port
 var express = require('express');
-var app = express;
+var app = express();
 var port = process.env.PORT || 3000;
 
 //middleware
 app.use('/assets', express.static(__dirname + '/public'));
 //setup template engine
 app.set('view engine', 'ejs');
+
+//logger
+app.use('/', function (req, res, next) {
+	console.log('Request Url:' + req.url);
+	next();
+});
+
+//test Room
+var roomDS = require('./data/roomsDataSource.js');
+//init rooms
+roomDS.makeNumberOfRooms(16);
+//fetch a page of rooms
+var dummyRooms = roomDS.fetchRoomsForPage(2);
+roomDS.describeRooms(dummyRooms);
+
+//nodechatadmin
+//nodechat29005606
+
+//test Page
+// var Page = require('./data/page');
+// var page1 = new Page(0, 0, 0, 0);
+// page1.describe();
+
+// page1.firstPage(112, 10);
+// page1.describe();
+
+// page1.lastPage();
+// page1.describe();
+
+// page1.pageNo(3);
+// page1.describe();
+
+// page1.pageNo(9);
+// page1.describe();
+
+// page1.pageNo(15);
+// page1.describe();
+
 
 //start app
 app.listen(port);

@@ -21,7 +21,10 @@
   },
   "homepage": "https://github.com/mihaelamj/nodechat#readme",
   "dependencies": {
+    "body-parser": "^1.14.2",
     "ejs": "^2.4.1",
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "mongoose": "^4.4.2",
+    "node-uuid": "^1.4.7"
   }
 }
