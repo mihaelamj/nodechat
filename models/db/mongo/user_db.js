@@ -1,22 +1,22 @@
 var Store = require('./db.js').Store;
 
-var Message = require('./../../entities/message');
-var MessageSchema = require('./message_schema.js');
+var User = require('./../../entities/user');
+var UserSchema = require('./user_schema.js');
 
-Message.prototype.toMongo = function() {
-    var thisMessage = MessageSchema({
-        text: this.text,
-        author: this.author,
-        type: this.type,
-        timestamp: this.timestamp,
+User.prototype.toMongo = function() {
+    var thisUser = UserSchema({
+        name: this.name,
+        password: this.password,
+        apiKey: this.apiKey,
+        dateCreated: this.dateCreated,
         index: this.index,
         objectID: this.objectID
     });
-    return thisMessage;
+    return thisUser;
 }
 
 //callback (err, user)
-Message.prototype.addToDB = function(callback) {
+User.prototype.addToDB = function(callback) {
     
     var thisMongo = this.toMongo();
     //pointer to self

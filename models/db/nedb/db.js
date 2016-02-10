@@ -4,9 +4,9 @@ var Datastore = require('nedb');
 var test = require('./../../../data/text');
 
 var UserStore = new Datastore({
-//   filename: "users.db",
-   filename: "./../../../data/users.db",
-  autoload: true,
+    filename: "users.db",
+//    filename: "./../../../data/users.db",
+    autoload: true,
 });
 
 var RoomStore = new Datastore({
@@ -14,7 +14,13 @@ var RoomStore = new Datastore({
   autoload: true,
 });
 
+var TestStore = new Datastore({
+  filename: "test.db",
+  autoload: true,
+});
+
 module.exports = {
     UserStore: UserStore,
-    RoomStore: RoomStore
+    RoomStore: RoomStore,
+    TestStore: TestStore
 }

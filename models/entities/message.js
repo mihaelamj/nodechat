@@ -7,6 +7,7 @@ function Message(author, text, type) {
   this.timestamp = new Date();
   this.objectID = uuid.v1();
   this.id = '';
+  this.index = 0;
 };
 
 Message.prototype.describe = function() {

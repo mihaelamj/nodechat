@@ -6,8 +6,9 @@ function User(name, password) {
   this.password = password;
   this.apiKey = uuid.v4();
   this.dateCreated = new Date();
-  this.id = 0; // will be provided by database
+  this.id = ''; // will be provided by database
   this.index = 0;
+  this.objectID = uuid.v1();
 };
 
 User.prototype.describe = function() {
