@@ -8,8 +8,9 @@
 //8. mkdir public
 //9. mkdir data for data sources
 //10. npm install node-uuid --save
-//11. npm install mongoose --save
+//11. npm install mongoose --save DB1
 //12. npm install body-parser --save
+//13. npm install nedb --save DB2
 
 //init app and port
 var express = require('express');
@@ -27,13 +28,47 @@ app.use('/', function (req, res, next) {
 	next();
 });
 
+//test message
+var Message = require('./data/entities/message');
+var message1 = new Message('mmj', 'Hello 1', 'info');
+message1.describe();
+//add mongo
+require('./data/db/mongo/message_db');
+message1.addToDB(function(err, message) {
+    console.log('message: ' + message);
+    console.log('err: ' + err);
+    message1.describe();
+});
+//or nedb
+// require('./data/db/nedb/message_db');
+// message1.addToDB(function(err, message) {
+//     console.log('message: ' + message);
+//     console.log('err: ' + err);
+//     message1.describe();
+// });
+
+//add nedb
+// var toNedb = require('./data/entities/message_nedb');
+// var messageJSON = message1.toNedb();
+// console.log('JSON: ' + messageJSON);
+
+// message1.addToDB(function(err, message) {
+//     console.log('message: ' + message);
+//     console.log('err: ' + err);
+//     message1.describe();
+//     message.describe();
+//     //message1 === message true
+// });
+
+
+
 //test Room
-var roomDS = require('./data/roomsDataSource.js');
-//init rooms
-roomDS.makeNumberOfRooms(16);
-//fetch a page of rooms
-var dummyRooms = roomDS.fetchRoomsForPage(2);
-roomDS.describeRooms(dummyRooms);
+// var roomDS = require('./data/roomsDataSource.js');
+// //init rooms
+// roomDS.makeNumberOfRooms(16);
+// //fetch a page of rooms
+// var dummyRooms = roomDS.fetchRoomsForPage(2);
+// roomDS.describeRooms(dummyRooms);
 
 //nodechatadmin
 //nodechat29005606
@@ -60,4 +95,6 @@ roomDS.describeRooms(dummyRooms);
 
 
 //start app
-app.listen(port);
+app.listen(port, function() {
+    console.log('App running on port: ' + port);
+});

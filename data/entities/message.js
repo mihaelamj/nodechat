@@ -5,12 +5,14 @@ function Message(author, text, type) {
   this.author = author;
   this.type = type;
   this.timestamp = new Date();
-  this.id = uuid.v1();
+  this.objectID = uuid.v1();
+  this.id = '';
 };
 
 Message.prototype.describe = function() {
     console.log('text: '  + this.text);
     console.log('author: ' + this.author);
+    console.log('objectID: ' + this.objectID);
     console.log('id: ' + this.id);
 }
 
