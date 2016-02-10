@@ -1,22 +1,6 @@
 var Message = require('./../../entities/message');
 var UserStore = require('./db.js').UserStore;
-
-Message.prototype.toNedb = function() {
-    return {
-        text: this.text,
-        author: this.author,
-        type: this.type,
-        timestamp : this.timestamp
-    }
-}
-
-Message.prototype.fromNedb = function(doc) {
-  this.text = doc.text;
-  this.author = doc.author;
-  this.type = doc.type;
-  this.timestamp = doc.timestamp;
-  this.id = doc._id;
-}
+var MessageSchema = require('./message_schema.js');
     
 var cleanupMessage = function(message) {
   return {

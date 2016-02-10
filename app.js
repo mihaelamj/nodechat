@@ -29,13 +29,13 @@ app.use('/', function (req, res, next) {
 });
 
 //test message
-var Message = require('./data/entities/message');
+var Message = require('./models/entities/message');
 var message1 = new Message('mmj', 'Hello 1', 'info');
 message1.describe();
 //add mongo
-require('./data/db/mongo/message_db');
+// require('./models/db/mongo/message_db');
 //or nedb
-// require('./data/db/nedb/message_db');
+require('./models/db/nedb/message_db');
 message1.addToDB(function(err, message) {
     console.log('message: ' + message);
     console.log('err: ' + err);
