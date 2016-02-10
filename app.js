@@ -34,33 +34,13 @@ var message1 = new Message('mmj', 'Hello 1', 'info');
 message1.describe();
 //add mongo
 require('./data/db/mongo/message_db');
+//or nedb
+// require('./data/db/nedb/message_db');
 message1.addToDB(function(err, message) {
     console.log('message: ' + message);
     console.log('err: ' + err);
     message1.describe();
 });
-//or nedb
-// require('./data/db/nedb/message_db');
-// message1.addToDB(function(err, message) {
-//     console.log('message: ' + message);
-//     console.log('err: ' + err);
-//     message1.describe();
-// });
-
-//add nedb
-// var toNedb = require('./data/entities/message_nedb');
-// var messageJSON = message1.toNedb();
-// console.log('JSON: ' + messageJSON);
-
-// message1.addToDB(function(err, message) {
-//     console.log('message: ' + message);
-//     console.log('err: ' + err);
-//     message1.describe();
-//     message.describe();
-//     //message1 === message true
-// });
-
-
 
 //test Room
 // var roomDS = require('./data/roomsDataSource.js');

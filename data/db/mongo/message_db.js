@@ -3,14 +3,12 @@ var Store = require('./db.js').Store;
 var MessageSchema = require('./message_schema.js');
 
 Message.prototype.toMongo = function() {
-    
     var thisMessage = MessageSchema({
         text: this.text,
         author: this.author,
         type: this.type,
         timestamp: this.timestamp
     });
-    
     return thisMessage;
 }
 
