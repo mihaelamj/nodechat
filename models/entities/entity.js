@@ -33,7 +33,6 @@ var handleInsert = function(callback, err, newDocs, thisDocument, thisInserted) 
 }
 
 Entity.prototype.add = function(callback) {
-    
     //pointer to self
     var thisInserted = this;
     
