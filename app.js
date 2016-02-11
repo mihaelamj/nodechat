@@ -29,9 +29,30 @@ app.use('/', function (req, res, next) {
 });
 
 //test message
-// var Message = require('./models/entities/message');
-// var message1 = new Message('mmj', 'Hello 1', 'info');
-// message1.describe();
+var Message = require('./models/entities/message');
+var message1 = new Message('mmj', 'Hello 1', 'info');
+message1.describe();
+
+//test new schemas
+require('./models/db/mongo/schemas');
+
+//test message add
+// require('./models/db/mongo/DBMessage');
+// message1.add(function(err, newEnt) {
+//     console.log('ent1: ' + newEnt);
+// });
+
+// //test room
+// var Room = require('./models/entities/room');
+// var room1 = new Room('tech');
+// room1.describe();
+
+//test user
+// var User = require('./models/entities/user');
+// var user1 = new User('mmj', 'pass');
+// user1.describe();
+
+
 //add mongo
 // require('./models/db/mongo/message_db');
 //or nedb
@@ -43,15 +64,15 @@ app.use('/', function (req, res, next) {
 // });
 
 //test entity
-var Entity = require('./models/entities/entity');
-var ent = new Entity('mmj');
+// var Entity = require('./models/entities/entity');
+// var ent = new Entity('mmj');
 
-//do nedb
-require('./models/db/nedb/entityTest');
+// //do nedb
+// require('./models/db/nedb/entityTest');
 
-ent.add(function(err, newEnt) {
-    console.log('ent1: ' + newEnt);
-});
+// ent.add(function(err, newEnt) {
+//     console.log('ent1: ' + newEnt);
+// });
 
 
 

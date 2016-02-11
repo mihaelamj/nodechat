@@ -1,31 +1,21 @@
-
-var uuid = require('node-uuid');
+var Entity = require('./entity');
+var util = require("util");
 
 //Room class
 function Room(name) {
-  this.name = name;
-  this.id = '';
-  this.objectID = uuid.v1();
-  this.author = '';
-  this.index = 0;
-  this.dateCreated = new Date();
-  this.users = new Array();
-  this.messages = new Array()
+    Entity.call(this);//call super
+    this.entityName = 'room';
+    this.name = name;
+    this.author = '';
+    this.users = new Array();
+    this.messages = new Array()
 };
+util.inherits(Room, Entity);
 
-Room.prototype.describe = function() {
-    console.log('room: '  + this.name);
-    console.log('index: ' + this.index);
-    console.log('id: ' + this.id);
-}
-
-//users
-Room.prototype.findUser = function(userID) {
-
-}
-
-Room.prototype.addUser = function(userID) {
-
+//template method
+Entity.prototype.describeSpecific = function() {
+    console.log('name: ' + this.name);
+    console.log('author: ' + this.author);
 }
 
 module.exports = Room;

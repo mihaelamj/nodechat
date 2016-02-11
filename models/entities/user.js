@@ -1,20 +1,22 @@
-var uuid = require('node-uuid');
+var Entity = require('./entity');
+var util = require("util");
 var crypto = require('crypto');
+var uuid = require('node-uuid');
 
 function User(name, password) {
-  this.name = name;
-  this.password = password;
-  this.apiKey = uuid.v4();
-  this.dateCreated = new Date();
-  this.id = ''; // will be provided by database
-  this.index = 0;
-  this.objectID = uuid.v1();
+    Entity.call(this);//call super
+    this.entityName = 'user';
+    this.name = name;
+    this.password = password;
+    this.apiKey = uuid.v4();
 };
+util.inherits(User, Entity);
 
-User.prototype.describe = function() {
-    console.log('name: '  + this.name);
+//template method
+Entity.prototype.describeSpecific = function() {
+    console.log('name: ' + this.name);
     console.log('password: ' + this.password);
-    console.log('id: ' + this.id);
+    console.log('apiKey: ' + this.apiKey);
 }
 
 module.exports = User;

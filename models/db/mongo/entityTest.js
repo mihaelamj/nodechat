@@ -12,7 +12,7 @@ var EntitySchema = new Schema({
     id: {type: String}
 });
 
-//fetches nedb document
+//fetches mongo document
 Entity.prototype.getDocument = function() {
      var thisEntity = EntitySchema({
         name: this.name,

@@ -1,20 +1,33 @@
 var uuid = require('node-uuid');
 
-function Entity(name) {
-    this.name = name;
+function Entity() {
+    this.entityName = '';
     this.objectID = uuid.v1();
     this.id = '';
     this.index = 0;
     this.timestamp = new Date();
 };
 
+Entity.prototype.describe = function() {
+    console.log('entityName: '  + this.entityName);
+    console.log('index: ' + this.index);
+    console.log('id: ' + this.id);
+    console.log('objectID: ' + this.objectID);
+    //call template method
+    this.describeSpecific();
+}
+
 //abstract
 Entity.prototype.getStore = function() {
     return null;
 }
-//fetches mongo or nedb document
+//abstract fetches mongo or nedb document
 Entity.prototype.getDocument = function() {
     return null; 
+}
+//abstract template
+Entity.prototype.describeSpecific = function() {
+    return null;
 }
 
 var handleInsert = function(callback, err, newDocs, thisDocument, thisInserted) {
