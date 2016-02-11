@@ -8,7 +8,7 @@ function AbstractEntitySchema() {
     Schema.apply(this, arguments);     
     //add                                     
     this.add({                              
-        entityName: {type: String, required: true},
+        entityName: {type: String, required: false},
         timestamp: {type: Date, default: Date.now},
         index: {type: Number, required: false},
         objectID: {type: String},
@@ -44,23 +44,29 @@ var MessageModel = EntityModel.discriminator('MessageModel', MessageSchema); // 
 var UserModel = EntityModel.discriminator('UserModel', UserSchema); 
 var RoomModel = EntityModel.discriminator('RoomModel', RoomSchema); 
 
-var aMessage = new MessageModel({
-    text: 'Hello',
-    author: 'mmj',
-    type: 'article'
-    });
+module.exports = {
+    MessageModel : MessageModel,
+    UserModel : UserModel,
+    RoomModel : RoomModel
+}
+
+// var aMessage = new MessageModel({
+//     text: 'Hello',
+//     author: 'mmj',
+//     type: 'article'
+//     });
     
-var aRoom = new RoomModel({
-    name: 'Room1',
-    author: 'mmj',
-    type: 'article'
-});
+// var aRoom = new RoomModel({
+//     name: 'Room1',
+//     author: 'mmj',
+//     type: 'article'
+// });
 
-var aUser = new UserModel({
-    name: 'mmj',
-    author: 'password', 
-});
+// var aUser = new UserModel({
+//     name: 'mmj',
+//     author: 'password', 
+// });
 
-aRoom.save(function(err, myRoom) {                                   
-    console.log("kitten is saved"); // no error checking, we're so cool.
-});
+// aRoom.save(function(err, myRoom) {                                   
+//     console.log("kitten is saved"); // no error checking, we're so cool.
+// });

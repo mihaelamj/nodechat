@@ -45,7 +45,7 @@ var handleInsert = function(callback, err, newDocs, thisDocument, thisInserted) 
     callback(err, thisDocument);
 }
 
-Entity.prototype.add = function(callback) {
+Entity.prototype.save = function(callback) {
     //pointer to self
     var thisInserted = this;
     

@@ -29,12 +29,12 @@ app.use('/', function (req, res, next) {
 });
 
 //test message
-var Message = require('./models/entities/message');
-var message1 = new Message('mmj', 'Hello 1', 'info');
-message1.describe();
+// var Message = require('./models/entities/message');
+// var message1 = new Message('mmj', 'Hello 1', 'info');
+// message1.describe();
 
 //test new schemas
-require('./models/db/mongo/schemas');
+require('./models/db/mongo/dataSource');
 
 //test message add
 // require('./models/db/mongo/DBMessage');

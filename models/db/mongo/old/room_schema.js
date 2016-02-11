@@ -4,15 +4,6 @@ var Schema = mongoose.Schema;
 var MessageSchema = require('./message_schema.js');
 
 // function Room(name) {
-//   this.name = name;
-//   this.id = '';
-//   this.objectID = uuid.v1();
-//   this.author = '';
-//   this.index = 0;
-//   this.dateCreated = new Date();
-//   this.users = new Array();
-//   this.messages = new Array()
-// };
 
 var roomModel = new Schema({
     name: {type: String, required: true},

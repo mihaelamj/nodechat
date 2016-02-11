@@ -18,4 +18,14 @@ Entity.prototype.describeSpecific = function() {
     console.log('author: ' + this.author);
 }
 
+Entity.prototype.addMessage = function(message) {
+    //TODO: check if id exists
+    this.messages.push(message);
+}
+
+Entity.prototype.addUser = function(user) {
+    //TODO: check if id exists
+    this.users.push(user);
+}
+
 module.exports = Room;
