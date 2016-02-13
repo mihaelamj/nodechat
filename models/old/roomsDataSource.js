@@ -1,5 +1,5 @@
-var Page = require('./entities/page');
-var Room = require('./entities/room');
+var Page = require('./../entities/page');
+var Room = require('./../entities/room');
 //TODO: add DB from (future) config
 
 var RoomsDataSource = {
@@ -23,8 +23,8 @@ var RoomsDataSource = {
     
     fetchRoomsForPage : function(pageNumber) {
         this.page.pageNo(pageNumber);
-        // return this._rooms.slice(this.page.startIndex, this.page.endIndex);
-        return this._rooms.slice(this.page.startIndex);
+        return this._rooms.slice(this.page.startIndex, this.page.endIndex);
+        // return this._rooms.slice(this.page.startIndex);
     },
     
     fecthAllRooms : function() {

@@ -11,6 +11,7 @@
 //11. npm install mongoose --save DB1
 //12. npm install body-parser --save
 //13. npm install nedb --save DB2
+//14. npm install extend --save
 
 //init app and port
 var express = require('express');
@@ -34,7 +35,10 @@ app.use('/', function (req, res, next) {
 // message1.describe();
 
 //test new schemas
-require('./models/db/mongo/dataSource');
+// require('./models/db/mongo/dataSource');
+
+//test new new schemas
+require('./models/db/mongo/entities');
 
 //test message add
 // require('./models/db/mongo/DBMessage');

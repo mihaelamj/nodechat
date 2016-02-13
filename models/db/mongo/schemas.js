@@ -28,7 +28,7 @@ var MessageSchema = new AbstractEntitySchema({
 //User Schema
 var UserSchema = new AbstractEntitySchema({
     password: {type: String, required: true},
-    apiKey: {type: String, required: true},
+    apiKey: {type: String, required: true}
 });
 
 //Room Schema

@@ -19,8 +19,27 @@ var TestStore = new Datastore({
   autoload: true,
 });
 
+var GlobalStore = new Datastore({
+  filename: "global.db",
+  autoload: true,
+});
+
+//unique index for user names
+UserStore.ensureIndex({ fieldName: 'name', unique: true }, function(err) {
+    if (err !== null) {
+        console.error("Unable to set uniqueness constraint on user names: " + err);
+    }
+});
+//unique index for room objectID
+RoomStore.ensureIndex({ fieldName: 'objectID', unique: true }, function(err) {
+    if (err !== null) {
+        console.error("Unable to set uniqueness constraint on user names: " + err);
+    }
+});
+
 module.exports = {
     UserStore: UserStore,
     RoomStore: RoomStore,
+    GlobalStore: GlobalStore,
     TestStore: TestStore
 }
